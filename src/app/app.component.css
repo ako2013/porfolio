@@ -6,7 +6,7 @@
 
 .grid-container{
     display: grid;
-    grid-template-rows: auto 1fr 2fr;
+    grid-template-rows: auto auto 2fr;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-areas: 
     "navbar navbar navbar"
@@ -14,12 +14,13 @@
     "box1 img box2";
     width: 100vw;
     height: 100vh;
+    grid-gap: 1em;
+    padding: 1em;
 }
 
 .index-navbar{
     grid-area: navbar;
-    grid-auto-rows: 1em;
-    max-height: 3em;
+    grid-auto-rows: 3em;
 }
 
 
@@ -30,17 +31,17 @@
 
 .index-box1{
     grid-area: box1;
-    background:yellow;
+    background:darkgrey;
 }
 
 .index-img{
     grid-area: img;
-    background: red;
+    background: lightslategrey;
 }
 
 .index-box2{
     grid-area: box2;
-    background: blue;
+    background: darkgrey;
 }
 
 @media screen and (max-width: 400px){
