@@ -1,0 +1,84 @@
+/* homepage styling  */
+.homepage-grid-container{
+    display: grid;
+    grid-template-rows: auto 1fr;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-areas: 
+    "logo logo logo"
+    "box1 img box2";
+    width:100vw;
+    height: 90vh;
+    grid-gap: 1em;
+    padding: 1em;
+}
+/* logo place style */
+.homepage-logo{
+    grid-area: logo;
+    text-align: center;
+    background: lightgrey;
+    margin: 0;
+}
+
+/* left box  style */
+.homepage-box1{
+    grid-area: box1;
+    background:darkgrey;
+}
+/* image + quote style */
+.homepage-img{
+    grid-area: img;
+    background: lightslategrey;
+    text-align: center;
+}
+
+.homepage-img:hover {
+  background-color: #ff4b4c;
+}
+
+.homepage-img:hover::after {
+  content: 'Contents';
+  position: absolute;
+  left: 50%;
+  top: 60%;
+  transform: translate(-50%,-50%);
+  color: white;
+  font-size: 60px;
+  font-weight: bold;
+}
+
+/* right box  style */
+.homepage-box2{
+    grid-area: box2;
+    background: darkgrey;
+    text-align: right;
+}
+
+.homepage-box2:hover {
+  background-color: #ff4b4c;
+}
+
+.homepage-box2:hover::after {
+  content: 'Chat Bot';
+  position: absolute;
+  left: 78%;
+  top: 56%;
+  color: white;
+  font-size: 60px;
+  font-weight: bold;
+}
+
+/* Rendering style for small screen devices */
+@media screen and (max-width: 400px){
+    .homepage-grid-container{
+        grid-template-rows: auto 2fr 1fr 1fr;
+        grid-template-areas: 
+        "logo logo logo"
+        "img img img"
+        "box1 box1 box1"
+        "box2 box2 box2"
+        ;
+        padding: 1em;
+        width: 100vw;
+        height: 100vh;
+    }
+}
