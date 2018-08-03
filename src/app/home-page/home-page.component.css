@@ -2,54 +2,59 @@
 .homepage-grid-container{
     display: grid;
     grid-template-rows: auto 1fr;
-    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-columns: auto auto ;
     grid-template-areas: 
-    "logo logo logo"
-    "box1 img box2";
+    " logo logo"
+    " box1 img";
     width:100vw;
     height: 90vh;
-    grid-gap: 1em;
-    padding: 1em;
 }
 /* logo place style */
 .homepage-logo{
     grid-area: logo;
     text-align: center;
-    background: lightgrey;
     margin: 0;
 }
 
 /* left box  style */
 .homepage-box1{
     grid-area: box1;
-    background:darkgrey;
+    image-rendering: optimizeSpeed;             /* Older versions of FF          */
+    image-rendering: -moz-crisp-edges;          /* FF 6.0+                       */
+    image-rendering: -webkit-optimize-contrast; /* Safari                        */
+    image-rendering: -o-crisp-edges;            /* OS X & Windows Opera (12.02+) */
+    image-rendering: pixelated;                 /* Awesome future-browsers       */
+    -ms-interpolation-mode: nearest-neighbor;   /* IE                            */
+    justify-self: end;
+    align-self: center;
+
 }
+
+.box1-header{
+    color: lightgrey;
+}
+
+.box1-paragraph{
+    color: dimgrey;
+}
+
+.pixel-img{
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-10%,-50%);
+}
+
 /* image + quote style */
 .homepage-img{
     grid-area: img;
-    background: lightslategrey;
-    text-align: center;
-}
-
-.homepage-img:hover {
-  background-color: #ff4b4c;
-}
-
-.homepage-img:hover::after {
-  content: 'Contents';
-  position: absolute;
-  left: 50%;
-  top: 60%;
-  transform: translate(-50%,-50%);
-  color: white;
-  font-size: 60px;
-  font-weight: bold;
+    justify-self: start; /* https://developer.mozilla.org/en-US/docs/Web/CSS/justify-self */
+    align-self: start;
 }
 
 /* right box  style */
 .homepage-box2{
     grid-area: box2;
-    background: darkgrey;
     text-align: right;
 }
 
@@ -60,25 +65,44 @@
 .homepage-box2:hover::after {
   content: 'Chat Bot';
   position: absolute;
-  left: 78%;
-  top: 56%;
+  left: 50%;
+  top: 50%;
   color: white;
   font-size: 60px;
   font-weight: bold;
+  transform: translate(50%, 50%)
 }
 
 /* Rendering style for small screen devices */
-@media screen and (max-width: 400px){
+@media screen and (max-width: 850px){
     .homepage-grid-container{
-        grid-template-rows: auto 2fr 1fr 1fr;
+        grid-template-rows: auto 2fr 2fr;
         grid-template-areas: 
         "logo logo logo"
         "img img img"
         "box1 box1 box1"
-        "box2 box2 box2"
+
         ;
         padding: 1em;
         width: 100vw;
         height: 100vh;
+    }
+
+    .homepage-box2{
+        display: none;
+    }
+
+    /* image + quote style */
+    .homepage-img{
+        text-align: center;
+        justify-self: center; /* https://developer.mozilla.org/en-US/docs/Web/CSS/justify-self */
+        align-self: center;
+    }
+
+    /* left box  style */
+    .homepage-box1{
+        grid-area: box1;
+        justify-self: center;
+        align-self: center;
     }
 }

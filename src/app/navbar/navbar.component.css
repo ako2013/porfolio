@@ -1,3 +1,7 @@
 .button-tempo{
     padding: 0.5em;
 }
+
+.bg-light{
+    background: white !important;
+}
