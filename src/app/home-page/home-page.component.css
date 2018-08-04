@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
 /* homepage styling  */
 .homepage-grid-container{
     display: grid;
@@ -8,48 +10,51 @@
     " box1 img";
     width:100vw;
     height: 90vh;
+    padding: 1em;
+    
 }
 /* logo place style */
 .homepage-logo{
     grid-area: logo;
     text-align: center;
     margin: 0;
+    color: white;
+    justify-self: center;
+    align-self: center;
+}
+
+#main-logo{
+    height: 100%;
+    width: 100%;
+    image-rendering: auto;                 /* Awesome future-browsers       */
+    -ms-interpolation-mode: nearest-neighbor;   /* IE                            */
 }
 
 /* left box  style */
 .homepage-box1{
     grid-area: box1;
-    image-rendering: optimizeSpeed;             /* Older versions of FF          */
-    image-rendering: -moz-crisp-edges;          /* FF 6.0+                       */
-    image-rendering: -webkit-optimize-contrast; /* Safari                        */
-    image-rendering: -o-crisp-edges;            /* OS X & Windows Opera (12.02+) */
-    image-rendering: pixelated;                 /* Awesome future-browsers       */
-    -ms-interpolation-mode: nearest-neighbor;   /* IE                            */
     justify-self: end;
     align-self: center;
-
 }
 
-.box1-header{
+#box1-header{
     color: lightgrey;
+    font-family: 'Lato', sans-serif;
+    font-size: 2rem;
 }
 
-.box1-paragraph{
+#box1-paragraph{
     color: dimgrey;
-}
-
-.pixel-img{
-    position: relative;
-    left: 50%;
-    top: 50%;
-    transform: translate(-10%,-50%);
+    font-family: 'Lato', sans-serif;
+    font-size: 1rem;
 }
 
 /* image + quote style */
 .homepage-img{
     grid-area: img;
-    justify-self: start; /* https://developer.mozilla.org/en-US/docs/Web/CSS/justify-self */
-    align-self: start;
+    justify-self: center; /* https://developer.mozilla.org/en-US/docs/Web/CSS/justify-self */
+    align-self: center;
+
 }
 
 /* right box  style */
@@ -73,16 +78,25 @@
   transform: translate(50%, 50%)
 }
 
+
+.triangle-down {
+	width: 0;
+	height: 0;
+	border-left: 25px solid transparent;
+	border-right: 25px solid transparent;
+	border-top: 50px solid #555;
+}
+
+
+/* Responsive styling */
 /* Rendering style for small screen devices */
-@media screen and (max-width: 850px){
+@media screen and (max-width: 850px), screen and (orientation:portrait){
     .homepage-grid-container{
         grid-template-rows: auto 2fr 2fr;
         grid-template-areas: 
         "logo logo logo"
         "img img img"
-        "box1 box1 box1"
-
-        ;
+        "box1 box1 box1";
         padding: 1em;
         width: 100vw;
         height: 100vh;
@@ -92,10 +106,9 @@
         display: none;
     }
 
-    /* image + quote style */
+    /* image + quote style for mobile devices*/
     .homepage-img{
-        text-align: center;
-        justify-self: center; /* https://developer.mozilla.org/en-US/docs/Web/CSS/justify-self */
+        justify-self: center;
         align-self: center;
     }
 
@@ -103,6 +116,27 @@
     .homepage-box1{
         grid-area: box1;
         justify-self: center;
-        align-self: center;
+        align-self: start;
+    }
+    
+}
+
+@media screen and (min-width: 1400px){
+    #main-logo{
+        height: 45em;
+        width: 60em;
+        image-rendering: auto;                 /* Awesome future-browsers       */
+        -ms-interpolation-mode: nearest-neighbor;   /* IE                            */
+    }
+    #box1-header{
+        color: lightgrey;
+        font-family: 'Lato', sans-serif;
+        font-size: 7rem;
+    }
+
+    #box1-paragraph{
+        color: dimgrey;
+        font-family: 'Lato', sans-serif;
+        font-size: 2rem;
     }
 }
